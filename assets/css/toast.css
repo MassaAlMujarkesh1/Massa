@@ -1,0 +1,15 @@
+/* BUG S1-T18: toast positioned wrong and hidden */
+.toast-container {
+    position: fixed;
+    bottom: -100px;
+    right: 50%;
+    opacity: 0;
+    z-index: -1;
+}
+
+.toast {
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}

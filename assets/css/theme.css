@@ -1,0 +1,15 @@
+/* BUG S1-T02: dark mode styles exist but theme.js is broken */
+body.dark-mode {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f8fafc;
+    --card-bg: #334155;
+}
+
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: var(--radius);
+}
