@@ -1,13 +1,29 @@
-// BUG S2-T02: sidebar toggle not implemented
 document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.querySelector('#sidebar-toggle');
-    const sidebar = document.querySelector('.lesson-sidebar');
-    if (toggle && sidebar) {
-        toggle.addEventListener('click', () => {
-            // sidebar.classList.toggle('collapsed');
-            alert('Sidebar broken - fix me!');
-        });
-    }
+    const searchInput = document.getElementById('course-search');
+    const courseCards = document.querySelectorAll('#courses-list .course-card');
+    const noResultsMessage = document.getElementById('no-results');
 
-    // BUG S2-T03: tabs not wired
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        let hasVisibleCourses = false;
+
+        courseCards.forEach(card => {
+            const title = card.getAttribute('data-title') || '';
+            
+            // التحقق من احتواء عنوان الكورس على نص البحث
+            if (title.includes(query)) {
+                card.style.display = '';
+                hasVisibleCourses = true;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // إظهار أو إخفاء رسالة عدم وجود نتائج
+        if (noResultsMessage) {
+            noResultsMessage.style.display = hasVisibleCourses ? 'none' : 'block';
+        }
+    });
 });

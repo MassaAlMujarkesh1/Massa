@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => { 
   const lessonLayout = document.getElementById('lessonLayout'); 
-  const sidebarToggle = document.getElementById('sidebar-toggle'); 
-  const sidebarOpenBtn = document.getElementById('sidebar-open-btn'); 
+  // تصحيح المعرفات لتطابق الأزرار في ملف lesson.php
+  const sidebarToggle = document.getElementById('sidebar-toggle-close'); 
+  const sidebarOpenBtn = document.getElementById('sidebar-toggle-open'); 
 
   if (sidebarToggle && lessonLayout) { 
     sidebarToggle.addEventListener('click', () => { 

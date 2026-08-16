@@ -12,17 +12,17 @@ require __DIR__ . '/includes/header.php';
 <div class="courses-container">
     <h1 class="page-title">جميع الكورسات</h1>
 
-    <!-- FIX BUG S2-T12: Added id="course-search" for live JS search & accessibility labels -->
+    <!-- حقل البحث مع إضافة id="course-search" وربطه مع الـ Label -->
     <div class="search-box">
         <label for="course-search" class="sr-only">ابحث عن كورس</label>
         <input type="text" id="course-search" class="form-control search-input" 
                placeholder="ابحث عن كورس..." aria-label="ابحث عن كورس">
     </div>
 
-    <!-- FIX BUG S1-T03: Responsive Grid Layout Container -->
+    <!-- شبكة عرض الكورسات -->
     <div class="courses-grid" id="courses-list">
         <?php foreach ($courses as $course): ?>
-        <article class="course-card" data-title="<?= e($course['title']) ?>">
+        <article class="course-card" data-title="<?= e(mb_strtolower($course['title'])) ?>">
             <img src="<?= asset('images/' . e($course['image'])) ?>" alt="<?= e($course['title']) ?>" loading="lazy">
             <div class="course-card-body">
                 <h3><?= e($course['title']) ?></h3>
@@ -37,7 +37,12 @@ require __DIR__ . '/includes/header.php';
         <?php endforeach; ?>
     </div>
 
-    <!-- FIX BUG S1-T08: Animated Skeleton Screen Loading Placeholder -->
+    <!-- رسالة تظهر عندما لا توجد نتائج للبحث -->
+    <div id="no-results" class="no-results-message" style="display: none; text-align: center; margin-top: 20px;">
+        <p>لا توجد كورسات تطابق بحثك.</p>
+    </div>
+
+    <!-- هيكل التحميل (Skeleton Loader) -->
     <div class="skeleton-card" aria-hidden="true"></div>
 </div>
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/includes/auth.php';
 
 $pageTitle = 'InfoTec — منصة تعليمية';
-$extraJs = ['counters.js'];
+$extraJs = ['counters.js', 'theme.js'];
 $courses = demo_courses();
 
 require __DIR__ . '/includes/header.php';
@@ -63,3 +63,4 @@ require __DIR__ . '/includes/header.php';
 </div>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>
+$extraJs = ['counters.js', 'theme.js'];

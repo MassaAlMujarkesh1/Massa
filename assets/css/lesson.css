@@ -26,7 +26,7 @@
   max-height: 80vh; 
   overflow-y: auto; 
   position: relative; 
-  z-index: 2; /* S1-T06: Normal desktop layer above standard layout, below floating controls */ 
+  z-index: 2; /* S1-T06: Normal desktop layer above standard layout, below floating controls */[cite: 5]
   transition: transform 0.3s ease, opacity 0.25s ease, padding 0.3s ease, visibility 0.3s ease; 
   transform: translateX(0); 
   opacity: 1; 
@@ -48,7 +48,7 @@
 /* 3. Main Content & Video Container (S1-T06 Stacking Fix) */ 
 .lesson-content { 
   position: relative; 
-  z-index: 1; /* Establishes isolated stacking context */ 
+  z-index: 1; /* Establishes isolated stacking context */[cite: 5]
 } 
 
 .video-container { 
@@ -56,16 +56,54 @@
   border-radius: var(--radius, 8px); 
   aspect-ratio: 16/9; 
   position: relative; 
-  z-index: 1; /* S1-T06: Allows video controls to remain fully interactive */ 
+  z-index: 1; /* S1-T06: Allows video controls to remain fully interactive */[cite: 5]
   overflow: hidden; 
+  margin-bottom: 1.75rem; /* مسافة فاصلة عن التبويبات والأزرار التي أسفل الفيديو */
 } 
+
+/* حاوية الأزرار أسفل الفيديو */
+.tabs-container {
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* 🟢 4. الفصل بين عناصر قائمة الدروس (جديد) */
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* مسافة متناسقة بين كل درس وآخر */
+  margin-top: 1rem;
+}
+
+.lesson-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.15); /* خلفية خفيفة لتمييز كرت الدرس */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* إطار ناعم للتحديد */
+  border-radius: 8px; /* حواف دائرية أنيقة */
+  margin-bottom: 0.5rem; /* مسافة أمان إضافية أسفل كل عنصر */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.lesson-item:hover {
+  background: rgba(255, 255, 255, 0.3); /* تفاعل جميل عند تمرير الماوس فوق الدرس */
+  transform: translateX(-3px);
+}
+
+.lesson-item:last-child {
+  margin-bottom: 0;
+}
 
 /* Floating Toggle Button (Appears when sidebar is collapsed) */ 
 .btn-toggle-floating { 
   position: absolute; 
   top: 12px; 
   right: 12px; 
-  z-index: 10; /* S1-T06: Always accessible above video container */ 
+  z-index: 10; /* S1-T06: Always accessible above video container */[cite: 5]
   background: var(--primary-color, #2563eb); 
   color: #ffffff; 
   border: none; 
@@ -82,7 +120,7 @@
   transform: translateY(-1px); 
 } 
 
-/* 4. Enhanced Comments Section Inputs */ 
+/* 5. Enhanced Comments Section Inputs */ 
 .comments-section textarea { 
   width: 100%; 
   min-height: 100px; 
@@ -99,7 +137,7 @@
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); 
 } 
 
-/* 5. Responsive Mobile Drawer Layer (S1-T06 Mobile Handling) */ 
+/* 6. Responsive Mobile Drawer Layer (S1-T06 Mobile Handling) */ 
 @media (max-width: 768px) { 
   .lesson-layout { 
     grid-template-columns: 1fr; 
@@ -112,7 +150,7 @@
     width: 280px; 
     height: 100vh; 
     max-height: 100vh; 
-    z-index: 100; /* S1-T06: Drawer overlay covering all content on mobile */ 
+    z-index: 100; /* S1-T06: Drawer overlay covering all content on mobile */[cite: 5]
     box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15); 
   } 
 }
